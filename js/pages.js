@@ -7,109 +7,116 @@ class PageManager {
         this.currentPage = 'login';
     }
 
-    // Renderizar página de login
     renderLoginPage() {
-        return `
-            <div class="login-container">
-                <div class="card login-card animate-scale-in">
-                    <div class="login-header">
-                        <div class="logo-circle">I</div>
-                        <h1>ImuniTrack</h1>
-                        <p>Seu controle de vacinação em dia</p>
-                    </div>
+    return `
+        <div class="login-container">
+            <div class="card login-card animate-scale-in">
 
-                    <div class="card-body">
-                        <h5 class="card-title mb-4 text-center">Bem-vindo</h5>
+                <div class="login-header">
+                    <div class="logo-circle">I</div>
+                    <h1>ImuniTrack</h1>
+                    <p>Seu controle de vacinação em dia</p>
+                </div>
 
-                        <form id="loginForm">
-                            <div class="mb-3">
-                                <label for="loginEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="loginEmail" placeholder="seu@email.com" required>
-                            </div>
+                <div class="login-body">
+                    <h5 class="card-title mb-4 text-center">Bem-vindo</h5>
 
-                            <div class="mb-3">
-                                <label for="loginPassword" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100 mb-3">
-                                <i class="bi bi-box-arrow-in-right"></i> Entrar
-                            </button>
-                        </form>
-
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <div class="flex-grow-1 border-top"></div>
-                            <small class="text-muted">Novo por aqui?</small>
-                            <div class="flex-grow-1 border-top"></div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="seu@email.com" required>
                         </div>
 
-                        <button class="btn btn-outline-primary w-100" onclick="app.goToPage('register')">
-                            <i class="bi bi-person-plus"></i> Criar Conta
-                        </button>
-
-                        <div class="test-credentials">
-                            <h6>Credenciais de Teste</h6>
-                            <p><strong>Email:</strong> <code>teste@email.com</code></p>
-                            <p><strong>Senha:</strong> <code>123456</code></p>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
                         </div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
 
-    // Renderizar página de registro
-    renderRegisterPage() {
-        return `
-            <div class="login-container">
-                <div class="card login-card animate-scale-in">
-                    <div class="login-header">
-                        <button class="btn btn-link text-muted mb-3" onclick="app.goToPage('login')">
-                            <i class="bi bi-arrow-left"></i> Voltar ao Login
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="bi bi-box-arrow-in-right"></i> Entrar
                         </button>
-                        <div class="logo-circle">I</div>
-                        <h1>ImuniTrack</h1>
-                        <p>Crie sua conta agora</p>
+                    </form>
+
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="flex-grow-1 border-top"></div>
+                        <small class="text-muted">Novo por aqui?</small>
+                        <div class="flex-grow-1 border-top"></div>
                     </div>
 
-                    <div class="card-body">
-                        <h5 class="card-title mb-4 text-center">Novo Cadastro</h5>
+                    <button class="btn btn-outline-primary w-100" onclick="app.goToPage('register')">
+                        <i class="bi bi-person-plus"></i> Criar Conta
+                    </button>
 
-                        <form id="registerForm">
-                            <div class="mb-3">
-                                <label for="registerName" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="registerName" placeholder="Seu nome" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="registerEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="registerEmail" placeholder="seu@email.com" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="registerBirthDate" class="form-label">Data de Nascimento</label>
-                                <input type="date" class="form-control" id="registerBirthDate" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="registerPassword" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="registerPassword" placeholder="••••••••" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="registerConfirmPassword" class="form-label">Confirmar Senha</label>
-                                <input type="password" class="form-control" id="registerConfirmPassword" placeholder="••••••••" required>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="bi bi-check-circle"></i> Criar Conta
-                            </button>
-                        </form>
+                    <div class="test-credentials">
+                        <h6>Credenciais de Teste</h6>
+                        <p><strong>Email:</strong> <code>teste@email.com</code></p>
+                        <p><strong>Senha:</strong> <code>123456</code></p>
                     </div>
                 </div>
+
             </div>
-        `;
-    }
+        </div>
+    `;
+}
+
+// Renderizar página de registro
+renderRegisterPage() {
+    return `
+        <div class="login-container">
+            <div class="card login-card animate-scale-in">
+
+                <div class="login-header">
+                    <button class="btn btn-link text-muted mb-3" onclick="app.goToPage('login')">
+                        <i class="bi bi-arrow-left"></i> Voltar ao Login
+                    </button>
+
+                    <div class="logo-circle">I</div>
+
+                    <h1>ImuniTrack</h1>
+                    <p>Crie sua conta agora</p>
+                </div>
+
+                <div class="login-body">
+                    <h5 class="card-title mb-4 text-center">Novo Cadastro</h5>
+
+                    <form id="registerForm">
+
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" id="registerName" placeholder="Seu nome" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="seu@email.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerBirthDate" class="form-label">Data de Nascimento</label>
+                            <input type="date" class="form-control" id="registerBirthDate" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirmar Senha</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="••••••••" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-check-circle"></i> Criar Conta
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    `;
+}
 
     // Renderizar layout principal (com navbar e sidebar)
     renderMainLayout(content) {
@@ -435,7 +442,7 @@ class PageManager {
                         <div class="d-flex align-items-center justify-content-between p-3  rounded card-theme">
                             <div>
                                 <p class="mb-0"><strong>Modo Escuro</strong></p>
-                                <small>Escolha entre tema claro e escuro</small>
+                                <small class="text-muted">Escolha entre tema claro e escuro</small>
                             </div>
                             <button class="btn btn-primary btn-sm" onclick="UIManager.toggleTheme()">
                                 <i class="bi bi-moon"></i> Alternar Tema

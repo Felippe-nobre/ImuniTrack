@@ -123,5 +123,6 @@ class VaccinationManager {
     }
 }
 
+
 // Instância global
 const vaccination = new VaccinationManager();

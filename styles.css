@@ -481,34 +481,25 @@ body.dark-mode .toast {
   color: var(--text-muted);
   margin-bottom: 2rem;
 }
-
 /* ============================================
-   LOGIN PAGE
+   LOGIN CARD
    ============================================ */
 
-.login-container {
-  min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.1) 0%,
-    rgba(167, 139, 250, 0.1) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
 .login-card {
-  max-width: 400px;
-  width: 100%;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
-.login-header {
-  text-align: center;
-  margin-bottom: 2rem;
+.login-body {
+    padding: 2rem;
+    background: white;
 }
-
 .logo-circle {
   width: 80px;
   height: 80px;
@@ -523,42 +514,18 @@ body.dark-mode .toast {
   font-weight: 700;
 }
 
-.login-header h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+
+.login-header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    background: white;
 }
 
-.login-header p {
-  color: var(--text-muted);
-}
-
-.test-credentials {
-  background-color: rgba(110, 231, 183, 0.1);
-  border: 1px solid rgba(110, 231, 183, 0.3);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 1.5rem;
-  font-size: 0.875rem;
-}
-
-.test-credentials h6 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
-}
-
-.test-credentials p {
-  margin: 0.25rem 0;
-  color: var(--text-muted);
-}
-
-.test-credentials code {
-  background-color: rgba(59, 130, 246, 0.1);
-  color: var(--primary);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: "Courier New", monospace;
+body.dark-mode .login-card,
+body.dark-mode .login-header,
+body.dark-mode .login-body {
+    background: #1e293b;
+    color: #f3f4f6;
 }
 
 /* ============================================
