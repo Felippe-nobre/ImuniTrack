@@ -1,13 +1,11 @@
-// ============================================
 // PÁGINAS - PAGES.JS
-// ============================================
 
 class PageManager {
-    constructor() {
-        this.currentPage = 'login';
-    }
+  constructor() {
+    this.currentPage = "login";
+  }
 
-    renderLoginPage() {
+  renderLoginPage() {
     return `
         <div class="login-container">
             <div class="card login-card animate-scale-in">
@@ -57,10 +55,10 @@ class PageManager {
             </div>
         </div>
     `;
-}
+  }
 
-// Renderizar página de registro
-renderRegisterPage() {
+  // Renderizar página de registro
+  renderRegisterPage() {
     return `
         <div class="login-container">
             <div class="card login-card animate-scale-in">
@@ -116,77 +114,123 @@ renderRegisterPage() {
             </div>
         </div>
     `;
-}
+  }
 
-    // Renderizar layout principal (com navbar e sidebar)
-    renderMainLayout(content) {
-        const user = auth.getCurrentUser();
-        const progress = vaccination.getImmunizationProgress();
-        const completed = vaccination.getCompletedVaccines().length;
-        const total = vaccination.getAllVaccines().length;
+  // Renderizar layout principal (com navbar e sidebar)
+  renderMainLayout(content) {
+    const user = auth.getCurrentUser();
+    const progress = vaccination.getImmunizationProgress();
+    const completed = vaccination.getCompletedVaccines().length;
+    const total = vaccination.getAllVaccines().length;
 
-        return `
+    return `
             <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
                 <div class="container-fluid">
+
+                    <!-- Logo -->
                     <a class="navbar-brand" href="#">
                         <i class="bi bi-shield-check"></i> ImuniTrack
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+                    <!-- MENU BOOTSTRAP -->
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
+                    <!-- NAVBAR -->
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
+
                             <li class="nav-item">
                                 <span class="nav-link">
                                     <i class="bi bi-person"></i> ${user.name}
                                 </span>
                             </li>
+
                             <li class="nav-item">
-                                <button class="nav-link btn btn-link" onclick="UIManager.toggleTheme()">
+                                <button class="nav-link btn btn-link"
+                                        onclick="UIManager.toggleTheme()">
                                     <i class="bi bi-moon"></i>
                                 </button>
                             </li>
+
                             <li class="nav-item">
-                                <button class="nav-link btn btn-link" onclick="app.logout()">
+                                <button class="nav-link btn btn-link"
+                                        onclick="app.logout()">
                                     <i class="bi bi-box-arrow-right"></i> Sair
                                 </button>
                             </li>
+
                         </ul>
                     </div>
+
                 </div>
             </nav>
-
+            <!-- BOTÃO SIDEBAR MOBILE -->
+            <button class="sidebar-mobile-toggle d-md-none"
+                    id="menuToggle">
+                <i class="bi bi-list"></i>
+            </button>
             <div class="container-fluid">
                 <div class="row">
+
                     <!-- Sidebar -->
-                    <div class="col-md-3 d-none d-md-block p-0">
+                    <div class="col-md-3 p-0 sidebar-wrapper" id="sidebarWrapper">
+
                         <div class="sidebar">
+
                             <div class="p-3 mb-3">
                                 <div class="card bg-primary text-white">
                                     <div class="card-body text-center">
                                         <h6 class="card-title">Progresso</h6>
+
                                         <div class="progress mb-2" style="height: 8px;">
                                             <div class="progress-bar" style="width: ${progress}%"></div>
                                         </div>
-                                        <small>${progress}% - ${completed}/${total} vacinas</small>
+
+                                        <small>
+                                            ${progress}% - ${completed}/${total} vacinas
+                                        </small>
                                     </div>
                                 </div>
                             </div>
 
-                            <a href="#" class="sidebar-item active" onclick="app.goToPage('dashboard'); return false;">
-                                <i class="bi bi-speedometer2"></i> Dashboard
+                            <a href="#"
+                            class="sidebar-item ${this.currentPage === "dashboard" ? "active" : ""}"
+                            onclick="app.goToPage('dashboard'); return false;">
+                                <i class="bi bi-speedometer2"></i>
+                                Dashboard
                             </a>
-                            <a href="#" class="sidebar-item" onclick="app.goToPage('calendar'); return false;">
-                                <i class="bi bi-calendar-event"></i> Calendário
+
+                            <a href="#"
+                            class="sidebar-item ${this.currentPage === "calendar" ? "active" : ""}"
+                            onclick="app.goToPage('calendar'); return false;">
+                                <i class="bi bi-calendar-event"></i>
+                                Calendário
                             </a>
-                            <a href="#" class="sidebar-item" onclick="app.goToPage('history'); return false;">
-                                <i class="bi bi-clock-history"></i> Histórico
+
+                            <a href="#"
+                            class="sidebar-item ${this.currentPage === "history" ? "active" : ""}"
+                            onclick="app.goToPage('history'); return false;">
+                                <i class="bi bi-clock-history"></i>
+                                Histórico
                             </a>
-                            <a href="#" class="sidebar-item" onclick="app.goToPage('profile'); return false;">
-                                <i class="bi bi-person-circle"></i> Perfil
+
+                            <a href="#"
+                            class="sidebar-item ${this.currentPage === "profile" ? "active" : ""}"
+                            onclick="app.goToPage('profile'); return false;">
+                                <i class="bi bi-person-circle"></i>
+                                Perfil
                             </a>
-                            <a href="#" class="sidebar-item" onclick="app.goToPage('settings'); return false;">
-                                <i class="bi bi-gear"></i> Configurações
+
+                            <a href="#"
+                            class="sidebar-item ${this.currentPage === "settings" ? "active" : ""}"
+                            onclick="app.goToPage('settings'); return false;">
+                                <i class="bi bi-gear"></i>
+                                Configurações
                             </a>
                         </div>
                     </div>
@@ -195,27 +239,28 @@ renderRegisterPage() {
                     <div class="col-md-9 p-4">
                         ${content}
                     </div>
+
                 </div>
             </div>
         `;
-    }
+  }
 
-    // Renderizar Dashboard
-    renderDashboard() {
-        const progress = vaccination.getImmunizationProgress();
-        const completed = vaccination.getCompletedVaccines();
-        const upcoming = vaccination.getUpcomingVaccines();
-        const overdue = vaccination.getOverdueVaccines();
+  // Renderizar Dashboard
+  renderDashboard() {
+    const progress = vaccination.getImmunizationProgress();
+    const completed = vaccination.getCompletedVaccines();
+    const upcoming = vaccination.getUpcomingVaccines();
+    const overdue = vaccination.getOverdueVaccines();
 
-        let statsHTML = `
+    let statsHTML = `
             <div class="page-title">Dashboard</div>
             <p class="page-subtitle">Acompanhe seu calendário de vacinação</p>
 
             <div class="stats-grid">
-                ${UIManager.createStatCard('<i class="bi bi-graph-up"></i>', 'primary', 'Progresso', `${progress}%`)}
-                ${UIManager.createStatCard('<i class="bi bi-check-circle"></i>', 'success', 'Concluídas', completed.length)}
-                ${UIManager.createStatCard('<i class="bi bi-clock"></i>', 'primary', 'Próximas', upcoming.length)}
-                ${UIManager.createStatCard('<i class="bi bi-exclamation-circle"></i>', 'danger', 'Atrasadas', overdue.length)}
+                ${UIManager.createStatCard('<i class="bi bi-graph-up"></i>', "primary", "Progresso", `${progress}%`)}
+                ${UIManager.createStatCard('<i class="bi bi-check-circle"></i>', "success", "Concluídas", completed.length)}
+                ${UIManager.createStatCard('<i class="bi bi-clock"></i>', "primary", "Próximas", upcoming.length)}
+                ${UIManager.createStatCard('<i class="bi bi-exclamation-circle"></i>', "danger", "Atrasadas", overdue.length)}
             </div>
 
             <div class="progress mb-4" style="height: 20px;">
@@ -223,8 +268,8 @@ renderRegisterPage() {
             </div>
         `;
 
-        if (overdue.length > 0) {
-            statsHTML += `
+    if (overdue.length > 0) {
+      statsHTML += `
                 <div class="alert alert-danger mb-4">
                     <h5><i class="bi bi-exclamation-triangle"></i> Vacinas Atrasadas</h5>
                     <p>Você tem ${overdue.length} vacina(s) atrasada(s). Agende sua(s) dose(s) o mais breve possível.</p>
@@ -233,9 +278,9 @@ renderRegisterPage() {
                     </button>
                 </div>
             `;
-        }
+    }
 
-        statsHTML += `
+    statsHTML += `
             <div class="text-center mt-5">
                 <button class="btn btn-primary btn-lg adicionar-vacina" onclick="app.goToPage('calendar')">
                     <i class="bi bi-plus-circle"></i> Adicionar Vacina
@@ -243,40 +288,40 @@ renderRegisterPage() {
             </div>
         `;
 
-        return this.renderMainLayout(statsHTML);
-    }
+    return this.renderMainLayout(statsHTML);
+  }
 
-    // Renderizar Calendário
-    renderCalendar() {
-        const vaccines = vaccination.getAllVaccines();
+  // Renderizar Calendário
+  renderCalendar() {
+    const vaccines = vaccination.getAllVaccines();
 
-        let calendarHTML = `
-            <div class="page-title">Calendário de Vacinação</div>
+    let calendarHTML = `
+            <div class="page-title m">Calendário de Vacinação</div>
             <p class="page-subtitle">Acompanhe suas próximas doses e marque as já tomadas</p>
 
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 mt-4 mt-lg-0">
                     <div class="card p-4">
                         <h5 class="mb-4">Vacinas Agendadas</h5>
                         <div id="vaccinesList">
         `;
 
-        if (vaccines.length === 0) {
-            calendarHTML += `
+    if (vaccines.length === 0) {
+      calendarHTML += `
                 <p class="text-muted text-center py-5">Nenhuma vacina agendada</p>
             `;
-        } else {
-            vaccines.forEach(vaccine => {
-                calendarHTML += UIManager.createVaccineElement(vaccine);
-            });
-        }
+    } else {
+      vaccines.forEach((vaccine) => {
+        calendarHTML += UIManager.createVaccineElement(vaccine);
+      });
+    }
 
-        calendarHTML += `
+    calendarHTML += `
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="card p-4 mb-4">
                         <h5 class="mb-3">Adicionar Vacina</h5>
                         <form id="addVaccineForm">
@@ -324,15 +369,15 @@ renderRegisterPage() {
             </div>
         `;
 
-        return this.renderMainLayout(calendarHTML);
-    }
+    return this.renderMainLayout(calendarHTML);
+  }
 
-    // Renderizar Histórico
-    renderHistory() {
-        const vaccines = vaccination.getAllVaccines();
-        const completed = vaccination.getCompletedVaccines();
+  // Renderizar Histórico
+  renderHistory() {
+    const vaccines = vaccination.getAllVaccines();
+    const completed = vaccination.getCompletedVaccines();
 
-        let historyHTML = `
+    let historyHTML = `
             <div class="page-title">Histórico de Vacinação</div>
             <p class="page-subtitle">Acompanhe todas as suas vacinas aplicadas</p>
 
@@ -343,16 +388,18 @@ renderRegisterPage() {
             <div id="historyList">
         `;
 
-        if (completed.length === 0) {
-            historyHTML += `
+    if (completed.length === 0) {
+      historyHTML += `
                 <div class="alert alert-info">
                     <i class="bi bi-info-circle"></i> Nenhuma vacina marcada como concluída ainda.
                 </div>
             `;
-        } else {
-            completed.forEach(vaccine => {
-                const takenDate = vaccine.takenAt ? UIManager.formatDateShort(vaccine.takenAt) : 'Data não registrada';
-                historyHTML += `
+    } else {
+      completed.forEach((vaccine) => {
+        const takenDate = vaccine.takenAt
+          ? UIManager.formatDateShort(vaccine.takenAt)
+          : "Data não registrada";
+        historyHTML += `
                     <div class="card mb-3 vaccine-item">
                         <div >
                             <div class="d-flex justify-content-between align-items-start">
@@ -372,21 +419,21 @@ renderRegisterPage() {
                         </div>
                     </div>
                 `;
-            });
-        }
+      });
+    }
 
-        historyHTML += `
+    historyHTML += `
             </div>
         `;
 
-        return this.renderMainLayout(historyHTML);
-    }
+    return this.renderMainLayout(historyHTML);
+  }
 
-    // Renderizar Perfil
-    renderProfile() {
-        const user = auth.getCurrentUser();
+  // Renderizar Perfil
+  renderProfile() {
+    const user = auth.getCurrentUser();
 
-        let profileHTML = `
+    let profileHTML = `
             <div class="page-title">Meu Perfil</div>
             <p class="page-subtitle">Gerencie suas informações pessoais</p>
 
@@ -426,12 +473,12 @@ renderRegisterPage() {
             </div>
         `;
 
-        return this.renderMainLayout(profileHTML);
-    }
+    return this.renderMainLayout(profileHTML);
+  }
 
-    // Renderizar Configurações
-    renderSettings() {
-        let settingsHTML = `
+  // Renderizar Configurações
+  renderSettings() {
+    let settingsHTML = `
             <div class="page-title">Configurações</div>
             <p class="page-subtitle">Personalize sua experiência no ImuniTrack</p>
 
@@ -474,8 +521,17 @@ renderRegisterPage() {
             </div>
         `;
 
-        return this.renderMainLayout(settingsHTML);
-    }
+    return this.renderMainLayout(settingsHTML);
+  }
 }
 
 const pages = new PageManager();
+
+document.addEventListener("click", (e) => {
+  const toggle = e.target.closest("#menuToggle");
+  const sidebar = document.getElementById("sidebarWrapper");
+
+  if (toggle) {
+    sidebar.classList.toggle("active");
+  }
+});

@@ -1,11 +1,11 @@
 // CALENDÁRIO VACINAL OFICIAL - VACCINE-CALENDAR.JS
 // Baseado no calendário do Ministério da Saúde do Brasil
-// ============================================
+
 
 const VACCINE_CALENDAR = {
-  // ============================================
+  
   // BEBÊS (0 - 12 MESES)
-  // ============================================
+  
   baby: [
     {
       name: "BCG",
@@ -70,9 +70,9 @@ const VACCINE_CALENDAR = {
     },
   ],
 
-  // ============================================
+  
   // CRIANÇAS (1 - 9 ANOS)
-  // ============================================
+  
   children: [
     {
       name: "DTP Reforço",
@@ -112,9 +112,9 @@ const VACCINE_CALENDAR = {
     },
   ],
 
-  // ============================================
+  
   // ADOLESCENTES (10 - 17 ANOS)
-  // ============================================
+  
   adolescents: [
     {
       name: "HPV",
@@ -148,9 +148,9 @@ const VACCINE_CALENDAR = {
     },
   ],
 
-  // ============================================
+  
   // ADULTOS (18 - 59 ANOS)
-  // ============================================
+  
   adults: [
     {
       name: "dT",
@@ -190,9 +190,9 @@ const VACCINE_CALENDAR = {
     },
   ],
 
-  // ============================================
+  
   // IDOSOS (60+)
-  // ============================================
+  
   elderly: [
     {
       name: "Influenza",

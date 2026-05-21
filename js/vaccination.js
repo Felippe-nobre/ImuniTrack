@@ -1,6 +1,6 @@
-// ============================================
+
 // GERENCIAMENTO DE VACINAÇÃO - VACCINATION.JS
-// ============================================
+
 
 class VaccinationManager {
     constructor() {

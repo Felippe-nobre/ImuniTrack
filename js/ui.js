@@ -1,6 +1,6 @@
-// ============================================
+
 // UTILITÁRIOS DE UI - UI.JS
-// ============================================
+
 
 class UIManager {
     // Mostrar toast (notificação)
