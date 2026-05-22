@@ -106,7 +106,7 @@ class AuthManager {
             name: 'Usuário Teste',
             email: 'teste@email.com',
             password: '123456',
-            dateOfBirth: '2023-06-15',
+            dateOfBirth: '2000-06-15',
             createdAt: new Date().toISOString()
         };
 
